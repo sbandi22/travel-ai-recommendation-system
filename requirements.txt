@@ -1,0 +1,13 @@
+torch
+transformers
+scikit-learn
+pandas
+numpy
+requests
+python-dateutil
+statsmodels
+xgboost
+openai
+python-dotenv
+ortools
+flask

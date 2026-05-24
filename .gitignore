@@ -1,0 +1,40 @@
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+travel_outfit_engine/venv/
+
+# Generated outfit images (created at runtime)
+static/generated_outfits/*.jpg
+static/generated_outfits/*.jpeg
+static/generated_outfits/*.png
+static/generated_outfits/*.webp
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (exceed GitHub/LFS limits — keep locally)
+tripadvisor_hotel_reviews.csv
+models/sarimax_models.pkl

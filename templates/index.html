@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelIQ — AI Journey Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- Particle canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Ambient orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- Cursor glow -->
+<div id="cursor-glow">✈</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 1 — HERO
+══════════════════════════════════════════ -->
+<section id="screen-hero" class="screen active">
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <span class="brand-plane">✈</span>
+      <span class="brand-name">TravelIQ</span>
+    </div>
+    <div class="nav-badge">AI-Powered</div>
+  </nav>
+
+  <div class="hero-wrap">
+    <div class="hero-eyebrow">
+      <span class="pulse-dot"></span>
+      Real-time data · 15 travel styles · AI-powered
+    </div>
+
+    <h1 class="hero-title">
+      <div class="ht-row">Build your</div>
+      <div class="ht-row"><span class="grad-text">perfect trip</span></div>
+      <div class="ht-row">in seconds.</div>
+    </h1>
+
+    <p class="hero-desc">
+      TravelIQ fuses machine learning, live weather, crowd intelligence,
+      and advanced AI to craft a hyper-personalised day-by-day itinerary —
+      complete with hotels, restaurants, and real travel times.
+    </p>
+
+    <button class="hero-cta" id="btn-start">
+      <span>Start Planning</span>
+      <span class="cta-arrow">→</span>
+      <div class="cta-ripple"></div>
+    </button>
+  </div>
+
+  <div class="hero-pills">
+    <div class="pill"><span>🗺️</span> Smart routing</div>
+    <div class="pill"><span>⛅</span> Live weather</div>
+    <div class="pill"><span>🏨</span> Hotel matching</div>
+    <div class="pill"><span>🍽️</span> Local dining</div>
+    <div class="pill"><span>📊</span> Crowd scores</div>
+    <div class="pill"><span>🔍</span> Feasibility check</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2 — WIZARD
+══════════════════════════════════════════ -->
+<section id="screen-wizard" class="screen">
+
+  <!-- Step progress -->
+  <div class="wiz-progress">
+    <div class="wp-step active" data-n="1"><div class="wp-dot">1</div><div class="wp-lbl">Destination</div></div>
+    <div class="wp-line"></div>
+    <div class="wp-step" data-n="2"><div class="wp-dot">2</div><div class="wp-lbl">Your Style</div></div>
+    <div class="wp-line"></div>
+    <div class="wp-step" data-n="3"><div class="wp-dot">3</div><div class="wp-lbl">Group</div></div>
+    <div class="wp-line"></div>
+    <div class="wp-step" data-n="4"><div class="wp-dot">4</div><div class="wp-lbl">Details</div></div>
+  </div>
+
+  <div class="wiz-body">
+
+    <!-- ── Step 1: Destination ──────────────── -->
+    <div class="wstep active" id="wstep-1">
+      <div class="ws-head">
+        <h2>Where are you <span class="grad-text">headed?</span></h2>
+        <p>Destination, dates, and how long you're staying</p>
+      </div>
+
+      <div class="ws-form">
+        <div class="frow">
+          <div class="fgroup grow">
+            <label>City</label>
+            <input id="inp-city" type="text" class="finp" placeholder="e.g. Phoenix" />
+          </div>
+          <div class="fgroup" style="width:160px;flex-shrink:0">
+            <label>State</label>
+            <select id="inp-state" class="finp">
+              <option value="">— State —</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Month</label>
+          <div id="month-grid" class="month-grid"></div>
+        </div>
+
+        <div class="frow">
+          <div class="fgroup">
+            <label>Year</label>
+            <div class="year-row" id="year-picker"></div>
+          </div>
+          <div class="fgroup w100">
+            <label>Start Day</label>
+            <input id="inp-start-day" type="number" class="finp" min="1" max="31" value="1" />
+          </div>
+          <div class="fgroup grow">
+            <label>Duration — <span id="days-lbl" class="val-lbl">3 days</span></label>
+            <input id="inp-days" type="range" class="fslider" min="1" max="14" value="3" />
+            <div class="slider-track-labels"><span>1</span><span>14</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ws-foot">
+        <button class="btn-next" id="s1-next">Continue <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- ── Step 2: Travel Style ──────────────── -->
+    <div class="wstep" id="wstep-2">
+      <div class="ws-head">
+        <h2>What's your <span class="grad-text">vibe?</span></h2>
+        <p>Pick the travel style that defines this trip</p>
+      </div>
+
+      <div id="style-grid" class="style-grid"></div>
+
+      <div class="ws-foot">
+        <button class="btn-back" onclick="App.prevStep()">← Back</button>
+        <button class="btn-next" id="s2-next">Continue <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- ── Step 3: Group & Preferences ──────── -->
+    <div class="wstep" id="wstep-3">
+      <div class="ws-head">
+        <h2>Who's <span class="grad-text">traveling?</span></h2>
+        <p>We'll tailor everything for your group</p>
+      </div>
+
+      <div class="ws-form">
+        <div class="fgroup">
+          <label>Group Type</label>
+          <div class="tgl-group" id="grp-toggle">
+            <button class="tgl active" data-v="solo">👤 Solo</button>
+            <button class="tgl" data-v="couple">💑 Couple</button>
+            <button class="tgl" data-v="family">👨‍👩‍👧 Family</button>
+            <button class="tgl" data-v="friends">👯 Friends</button>
+          </div>
+        </div>
+
+        <div class="fgroup" id="ages-row" style="display:none">
+          <label>Group ages <span class="hint">(comma-separated)</span></label>
+          <input id="inp-ages" type="text" class="finp" placeholder="35,38,8,12" />
+        </div>
+
+        <div class="frow">
+          <div class="fgroup grow">
+            <label>Trip Pace</label>
+            <div class="tgl-group" id="pace-toggle">
+              <button class="tgl" data-v="relaxed">🌿 Relaxed</button>
+              <button class="tgl active" data-v="moderate">⚡ Moderate</button>
+              <button class="tgl" data-v="packed">🚀 Packed</button>
+            </div>
+          </div>
+          <div class="fgroup grow">
+            <label>Fitness Level</label>
+            <div class="tgl-group" id="fit-toggle">
+              <button class="tgl" data-v="low">🪑 Low</button>
+              <button class="tgl active" data-v="moderate">🚶 Moderate</button>
+              <button class="tgl" data-v="high">🏃 High</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="frow">
+          <div class="fgroup grow">
+            <label>Wake-up Time — <span id="wake-lbl" class="val-lbl">8:00 AM</span></label>
+            <input id="inp-wake" type="range" class="fslider" min="5" max="10" value="8" />
+            <div class="slider-track-labels"><span>5 AM</span><span>10 AM</span></div>
+          </div>
+          <div class="fgroup grow">
+            <label>Transport</label>
+            <div class="tgl-group" id="trans-toggle">
+              <button class="tgl active" data-v="driving">🚗 Drive</button>
+              <button class="tgl" data-v="transit">🚌 Transit</button>
+              <button class="tgl" data-v="walking">🚶 Walk</button>
+              <button class="tgl" data-v="cycling">🚲 Cycle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ws-foot">
+        <button class="btn-back" onclick="App.prevStep()">← Back</button>
+        <button class="btn-next" id="s3-next">Continue <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- ── Step 4: Final Details ─────────────── -->
+    <div class="wstep" id="wstep-4">
+      <div class="ws-head">
+        <h2>Almost <span class="grad-text">there!</span></h2>
+        <p>A few last details for the perfect recommendation</p>
+      </div>
+
+      <div class="ws-form">
+        <div class="fgroup">
+          <label>Must-visit places <span class="hint">(optional — comma-separated, must be in your destination city)</span></label>
+          <textarea id="inp-must-visit" class="finp" rows="2" placeholder="e.g. Bellagio Fountains, Fremont Street Experience, Neon Museum"></textarea>
+          <div id="must-visit-status"></div>
+        </div>
+
+        <div class="fgroup">
+          <label>Interests <span class="hint">(optional — helps with ranked suggestions)</span></label>
+          <input id="inp-interests" type="text" class="finp" placeholder="e.g. local art, street food, hiking, history" />
+        </div>
+
+        <div class="frow">
+          <div class="fgroup grow">
+            <label>Dietary Restrictions</label>
+            <input id="inp-dietary" type="text" class="finp" placeholder="vegetarian, gluten-free, none…" value="none" />
+          </div>
+          <div class="fgroup grow">
+            <label>Meal Budget (per person)</label>
+            <div class="budget-row" id="budget-grid">
+              <button class="bdg" data-v="$10">$10</button>
+              <button class="bdg active" data-v="$20">$20</button>
+              <button class="bdg" data-v="$30">$30</button>
+              <button class="bdg" data-v="$50">$50+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ws-foot">
+        <button class="btn-back" onclick="App.prevStep()">← Back</button>
+        <button class="btn-generate" id="btn-gen">
+          <span class="gen-spark">✨</span>
+          <span>Generate My Itinerary</span>
+          <div class="gen-shimmer"></div>
+        </button>
+      </div>
+    </div>
+
+  </div><!-- .wiz-body -->
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 3 — LOADING
+══════════════════════════════════════════ -->
+<section id="screen-loading" class="screen">
+  <div class="load-wrap">
+    <div class="load-ring-wrap">
+      <svg class="load-ring" viewBox="0 0 140 140">
+        <circle class="lr-track" cx="70" cy="70" r="62"/>
+        <circle class="lr-fill" id="lr-fill" cx="70" cy="70" r="62"/>
+      </svg>
+      <div class="load-inner">
+        <div class="load-plane">✈</div>
+        <div class="load-pct" id="load-pct">0%</div>
+      </div>
+    </div>
+
+    <h3 class="load-title">Crafting your perfect journey</h3>
+    <p class="load-sub" id="load-sub">Initialising AI systems…</p>
+
+    <div class="load-pipeline">
+      <div class="lp-step" id="lp-hotel"><span class="lp-icon">🏨</span><span class="lp-txt">Finding your hotel</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-attrs"><span class="lp-icon">🗺️</span><span class="lp-txt">Discovering attractions</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-feat"><span class="lp-icon">🧠</span><span class="lp-txt">Analysing reviews &amp; sentiment</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-weather"><span class="lp-icon">⛅</span><span class="lp-txt">Checking weather forecast</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-route"><span class="lp-icon">📍</span><span class="lp-txt">Building optimal route</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-meals"><span class="lp-icon">🍽️</span><span class="lp-txt">Curating dining experiences</span><span class="lp-check">✓</span></div>
+      <div class="lp-step" id="lp-audit"><span class="lp-icon">✅</span><span class="lp-txt">Final feasibility check</span><span class="lp-check">✓</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 4 — RESULTS
+══════════════════════════════════════════ -->
+<section id="screen-results" class="screen">
+  <div class="results-top">
+    <button class="btn-new" id="btn-new">← New Trip</button>
+    <div class="rt-title-area">
+      <h2 id="res-title">Your Itinerary</h2>
+      <p id="res-sub">Ready for adventure</p>
+    </div>
+  </div>
+
+  <!-- Hotel banner -->
+  <div id="hotel-banner" class="hotel-banner"></div>
+
+  <!-- Day tabs -->
+  <div class="day-tabs-wrap">
+    <div class="day-tabs" id="day-tabs"></div>
+  </div>
+
+  <!-- Day content -->
+  <div class="day-panes" id="day-panes"></div>
+</section>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
